@@ -24,7 +24,7 @@ class Contact extends Component {
         {value => {
           const { dispatch } = value;
           return (
-            <div className="card mb3" style={{ width: "18rem" }}>
+            <div className="card mb3">
               <div className="card-body">
                 <h4 className="card-title text-center">
                   {name}
