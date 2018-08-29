@@ -41,6 +41,7 @@ class AddContact extends Component {
       phone: "",
       errors: {}
     });
+    this.props.history.push("/");
   };
   onChange = e => this.setState({ [e.target.name]: e.target.value });
   render() {
@@ -50,7 +51,10 @@ class AddContact extends Component {
         {value => {
           const { dispatch } = value;
           return (
-            <div className="card mb-3 " style={{ width: "18rem" }}>
+            <div
+              className="card mb-3  "
+              style={{ margin: "0 auto", width: "18rem" }}
+            >
               <div className="card-header">Add Contact</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
