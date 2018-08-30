@@ -13,7 +13,9 @@ class Contact extends Component {
     });
   };
   onDeleteClick = (id, dispatch) => {
-    dispatch({ type: "DELETE_CONTACT", payload: id });
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+      method: "DELETE"
+    }).then(dispatch({ type: "DELETE_CONTACT", payload: id }));
   };
   render() {
     const { id, name, email, phone } = this.props.contact;
