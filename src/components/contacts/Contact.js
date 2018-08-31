@@ -12,10 +12,15 @@ class Contact extends Component {
       showContactInfo: !this.state.showContactInfo
     });
   };
-  onDeleteClick = (id, dispatch) => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-      method: "DELETE"
-    }).then(dispatch({ type: "DELETE_CONTACT", payload: id }));
+  onDeleteClick = async (id, dispatch) => {
+    try {
+      await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+        method: "DELETE"
+      });
+      dispatch({ type: "DELETE_CONTACT", payload: id });
+    } catch (e) {
+      dispatch({ type: "DELETE_CONTACT", payload: id });
+    }
   };
   render() {
     const { id, name, email, phone } = this.props.contact;

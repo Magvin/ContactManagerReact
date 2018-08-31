@@ -29,11 +29,10 @@ export class Provider extends Component {
     }
   };
 
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(data => this.setState({ contacts: data }))
-      .catch("You have error", console.error);
+  async componentDidMount() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    const json = await res.json();
+    return this.setState({ contacts: json });
   }
   render() {
     return (
