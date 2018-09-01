@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../../context";
+import { Link } from "react-router-dom";
 
 class Contact extends Component {
   state = {
@@ -49,6 +50,17 @@ class Contact extends Component {
                     }}
                     onClick={this.onDeleteClick.bind(this, id, dispatch)}
                   />
+                  <Link to={`contact/edit/${id}`}>
+                    <i
+                      className="fas fa-pencil-alt"
+                      style={{
+                        padding: " 0 30px 0  0",
+                        cursor: "pointer",
+                        float: "right",
+                        color: "#17a2b8"
+                      }}
+                    />
+                  </Link>
                 </h4>
                 {showContactInfo ? null : (
                   <ul className="list-group">
